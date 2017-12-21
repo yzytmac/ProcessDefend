@@ -36,15 +36,6 @@ public class AService extends Service {
         }
         //绑定b服务
         bindService(mIntent, mConn, Context.BIND_IMPORTANT);
-        new Thread() {
-            public void run() {
-                while (true) {
-                    Intent vIntent = new Intent("com.yzy.process");
-                    sendBroadcast(vIntent);
-                    SystemClock.sleep(3000);
-                }
-            }
-        }.start();
     }
 
     private class MyConn implements ServiceConnection {
